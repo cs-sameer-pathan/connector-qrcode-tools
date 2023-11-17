@@ -57,7 +57,6 @@
       "message":"Success"
    },
    "config_count":0,
-   "ingestion_supported":true,
    "cs_approved":false,
    "tags":[
       "QRCode",
@@ -74,8 +73,5 @@
    "modified":"2021-11-24T13:56:11.301782Z",
    "agent":"",
    "rpm_installed":null,
-   "ingestion_modes":[
-      "scheduled"
-   ],
    "forked_from":""
 }
