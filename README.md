@@ -1,5 +1,5 @@
 # QR Code Connector
 
 ## Installation
-yum install mesa-libGL
-install connector rpm
+- yum install mesa-libGL
+- install connector rpm/tarball
