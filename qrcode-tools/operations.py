@@ -46,7 +46,7 @@ def _get_file_path(file_id):
 Operations: connector's actions implementation
 """
 
-def read_code(config, params):
+def read_qr_code(config, params):
     """Reads QRcode from an image file"""
     codes = []
     img = cv2.imread(_get_file_path(params.get("file_iri")))
