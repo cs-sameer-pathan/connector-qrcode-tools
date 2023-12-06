@@ -33,10 +33,10 @@
       ],
       "output_schema": [
         {
-          "Text": "",
-          "Format": "",
-          "Content": "",
-          "Position": ""
+          "text": "",
+          "format": "",
+          "content": "",
+          "position": ""
         }
       ]
     }

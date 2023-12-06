@@ -53,10 +53,10 @@ def read_code(config, params):
     results = zxingcpp.read_barcodes(img)
     for result in results:
         codes.append({ 
-            "Text": f'{result.text}',
-            "Format": f'{result.format}',
-            "Content": f'{result.content_type}',
-            "Position": f'{result.position}'.replace('\u0000','')
+            "text": f'{result.text}',
+            "format": f'{result.format}',
+            "content": f'{result.content_type}',
+            "position": f'{result.position}'.replace('\u0000','')
         })
     logger.debug(_print_json(codes))
     if len(codes) == 0:
