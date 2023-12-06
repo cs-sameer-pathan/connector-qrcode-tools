@@ -1,77 +1,74 @@
 {
-   "name":"qrcode-tools",
-   "version":"1.0.0",
-   "label":"QRCode Tools",
-   "description":"QRCode Tools helps users working with QR and Bar codes",
-   "publisher":"Naili.M",
-   "icon_small_name":"small_icon.png",
-   "icon_large_name":"large_icon.png",
-   "id":102,
-   "configuration":{},
-   "operations":[
-      {
-         "operation":"read_code",
-         "title":"Read QR/Bar Code",
-         "description":"Read QR/Bar code(s) from an image file or attachment",
-         "category":"investigation",
-         "annotation":"read_qr_code",
-         "enabled":true,
-         "parameters":[
-                          {
-                 "title": "File IRI",
-                 "name": "file_iri",
-                 "description": "IRI of the image file or attachment with the QR/Bar code(s) to read",
-                 "tooltip": "IRI of the image file or attachment with the QR/Bar code(s) to read",
-                 "type": "text",
-                 "visible": true,
-                 "editable": true,
-                 "required": true
-             }
-
-         ],
-         "output_schema": [
-            {
-                "Text": "",
-                "Format": "",
-                "Content": "",
-                "Position": ""
-            }
-        ]
-      }
-   ],
-   "category":"Investigation",
-   "active":true,
-   "cs_compatible":true,
-   "system":false,
-   "playbook_collections":[
-
-   ],
-   "icon_small":"images/small_icon.png",
-   "icon_large":"images/large_icon.png",
-   "help_online":"https://docs.fortinet.com/document/fortisoar/1.2.0/qrcode-tools/66/qrcode-tools-v1-0-0",
-   "help_file":null,
-   "vendor_version":null,
-   "status":"Completed",
-   "install_result":{
-      "output":"",
-      "message":"Success"
-   },
-   "config_count":0,
-   "cs_approved":false,
-   "tags":[
-      "QRCode",
-      "Barcode"
-   ],
-   "remote_status":{
-      "output":"",
-      "status":"finished",
-      "message":"Success"
-   },
-   "rpm_full_name":null,
-   "installed":true,
-   "created":"2023-11-10T13:56:11.301754Z",
-   "modified":"2021-11-24T13:56:11.301782Z",
-   "agent":"",
-   "rpm_installed":null,
-   "forked_from":""
+  "name": "qrcode-tools",
+  "version": "1.0.0",
+  "label": "QRCode Tools",
+  "description": "QRCode Tools helps users working with QR and Bar codes",
+  "publisher": "Fortinet CSE",
+  "icon_small_name": "small_icon.png",
+  "icon_large_name": "large_icon.png",
+  "configuration": {},
+  "operations": [
+    {
+      "operation": "read_code",
+      "title": "Read QR/Bar Code",
+      "description": "Read QR/Bar code(s) from an image file or attachment",
+      "category": "investigation",
+      "annotation": "read_qr_code",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "File IRI",
+          "name": "file_iri",
+          "description": "IRI of the image file or attachment with the QR/Bar code(s) to read",
+          "tooltip": "IRI of the image file or attachment with the QR/Bar code(s) to read",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": [
+        {
+          "Text": "",
+          "Format": "",
+          "Content": "",
+          "Position": ""
+        }
+      ]
+    }
+  ],
+  "category": "Investigation",
+  "active": true,
+  "cs_compatible": true,
+  "system": false,
+  "playbook_collections": [
+  ],
+  "icon_small": "images/small_icon.png",
+  "icon_large": "images/large_icon.png",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.2.0/qrcode-tools/66/qrcode-tools-v1-0-0",
+  "help_file": null,
+  "vendor_version": null,
+  "status": "Completed",
+  "install_result": {
+    "output": "",
+    "message": "Success"
+  },
+  "config_count": 0,
+  "cs_approved": false,
+  "tags": [
+    "QRCode",
+    "Barcode"
+  ],
+  "remote_status": {
+    "output": "",
+    "status": "finished",
+    "message": "Success"
+  },
+  "rpm_full_name": null,
+  "installed": true,
+  "created": "2023-11-10T13:56:11.301754Z",
+  "modified": "2021-11-24T13:56:11.301782Z",
+  "agent": "",
+  "rpm_installed": null,
+  "forked_from": ""
 }
