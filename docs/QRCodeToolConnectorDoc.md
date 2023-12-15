@@ -11,7 +11,7 @@
 
 <p>Authored By: Fortinet CSE</p>
 
-<p>Contributors: Swapnil Koulgikar</p>
+<p>Contributors: Naili Mahdi</p>
 
 <p>Certified: No</p>
 
