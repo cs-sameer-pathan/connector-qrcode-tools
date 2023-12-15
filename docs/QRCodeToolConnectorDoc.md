@@ -1,61 +1,77 @@
-# Overview
 
- Oracle Database connector enables FortiSOAR to run SQL query on Oracle Database 12c+
+<h2>About the connector</h2>
 
-# Oracle Database
+<p>QRCode Tools helps users working with QR and Bar codes</p>
 
+<p>This document provides information about the QRCode Tools Connector, which facilitates automated interactions, with a QRCode Tools server using FortiSOAR&trade; playbooks. Add the QRCode Tools Connector as a step in FortiSOAR&trade; playbooks and perform automated operations with QRCode Tools.</p>
 
-Use this connector to connect to an Oracle database to run queries and retrieve data. You can connect to multiple databases by setting up multiple configurations. 
+<h3>Version information</h3>
 
-### Version information
+<p>Connector Version: 1.0.0</p>
 
-- Connector Version: 1.0.0
-- Authored By: Fortinet CSE.
-- Certified: No
+<p>Authored By: Fortinet CSE</p>
 
-### Release Notes for version 1.0.0
+<p>Contributors: Swapnil Koulgikar</p>
 
-- Tested on 
-    - FortiSOAR 7.3.0
-    - Oracle Database XE 21c
+<p>Certified: No</p>
 
-### Installation
+<h2>Installing the connector</h2>
 
-- Download and **install Oracle Instant Client:**
-    - On RHEL, CentOS or Rocky linux install the required package using the command line below
+<p>Use the <strong>Content Hub</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.</p><p>You can also use the <code>yum</code> command as a root user to install the connector:</p>
 
-```bash
-yum install https://download.oracle.com/otn_software/linux/instantclient/218000/oracle-instantclient-basic-21.8.0.0.0-1.el8.x86_64.rpm
-```
+<pre>yum install cyops-connector-qrcode-tools</pre>
 
-- Browse to **Content Hub** within FortiSOAR UI (7.2+) or the **Connector Store** if you have an older version and search for **Oracle Database* connector. Open it and click **Install**
+<h2>Prerequisites to configuring the connector</h2>
 
+<p>There are no prerequisites to configuring this connector.</p>
 
-### Configuration parameters
+<h2>Minimum Permissions Required</h2>
 
-In FortiSOAR™, on the **Content Hub** (or Connector Store) page, click the **Manage** tab, and then click the **Oracle Database** connector card. On the connector page pops up. Select the  **Configurations** tab to enter the required configuration details.
+<ul>
+<li>Not applicable</li>
+</ul>
 
+<h2>Configuring the connector</h2>
 
-|Parameter | Description | 
-|----------|-------------|
-| Host | Specify the Hostname of the oracle database server to which you will connect and perform the automated operations.|
-|Port| Specify the Port number used for connecting to the database server, it is 1521 by default|
-|Database|Specify the name of the database to which you will connect and perform automated operations.|
-|Username|Specify the username to access the oracle database to which you will connect and perform automated operations. The user must have the required privileges on the above database|
-|Password| Specify the password to access the database to which you will connect and perform automated operations.|
+<p>For the procedure to configure a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector">here</a></p>
 
-### Actions supported by the connector
+<h3>Configuration parameters</h3>
 
-The following automated operations can be included in playbooks:
+<p>None.</p>
 
-| Function | Description |
-|----------|-------------|
-| Query DB| Performs a query on the configured database based on the query string you have specified. the semicolon is not needed at the end of the sql statement|
+<h2>Actions supported by the connector</h2>
 
-### operation: Query DB
+<p>The following automated operations can be included in playbooks and you can also use the annotations to access operations:</p>
 
-#### Input parameters
+<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Read QR/Bar Code</td><td>Read QR/Bar code(s) from an image file or attachment</td><td>read_qr_code <br/>Investigation</td></tr>
+</tbody></table>
 
-|Parameter|Description|
-|----------|-------------|
-| Query String | Specify the PL*SQL query that you want to run on the configured database |
+<h3>operation: Read QR/Bar Code</h3>
+
+<h4>Input parameters</h4>
+
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>File IRI</td><td>IRI of the image file or attachment with the QR/Bar code(s) to read
+</td></tr></tbody></table>
+
+<h4>Output</h4>
+
+<p>The output contains the following populated JSON schema:</p>
+
+<pre>[
+    {
+        "text": "",
+        "format": "",
+        "content": "",
+        "position": ""
+    }
+]</pre>
+
+<h2>Included playbooks</h2>
+
+<p>The <code>Sample - qrcode-tools - 1.0.0</code> playbook collection comes bundled with the QRCode Tools connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the <strong>Automation</strong> &gt; <strong>Playbooks</strong> section in FortiSOAR&trade; after importing the QRCode Tools connector.</p>
+
+<ul>
+<li>Read QR/Bar Code</li>
+</ul>
+
+<p><strong>Note</strong>: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.</p>
