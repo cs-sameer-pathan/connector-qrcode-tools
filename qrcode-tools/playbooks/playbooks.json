@@ -19,7 +19,7 @@
           "aliasName": null,
           "tag": null,
           "description": "Read QR/Bar codes from image file or attachment",
-          "isActive": true,
+          "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
