@@ -1,4 +1,8 @@
-""" operations.py """
+""" Copyright start
+  Copyright (C) 2008 - 2023 Fortinet Inc.
+  All rights reserved.
+  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
+  Copyright end """
 
 import logging
 import zxingcpp
@@ -6,11 +10,10 @@ import cv2
 import json
 from connectors.core.connector import get_logger, ConnectorError
 from integrations.crudhub import make_request
-from connectors.cyops_utilities.builtins import download_file_from_cyops, upload_file_to_cyops
+from connectors.cyops_utilities.builtins import download_file_from_cyops
 
-#TODO: upload created codes to cyops @upload_file_to_cyops
 
-logger = get_logger('fortinet-FortiCWP')
+logger = get_logger('qrcode-tools')
 logger.setLevel(logging.DEBUG)
 
 """
@@ -40,7 +43,7 @@ def _get_file_path(file_id):
         file_name = res['filename']
     logger.info("res: {}".format(res))
     file_path = "{0}/{1}".format('/tmp', res['cyops_file_path'])
-    return file_path    
+    return file_path
 
 """
 Operations: connector's actions implementation
@@ -52,7 +55,7 @@ def read_qr_code(config, params):
     img = cv2.imread(_get_file_path(params.get("file_iri")))
     results = zxingcpp.read_barcodes(img)
     for result in results:
-        codes.append({ 
+        codes.append({
             "text": f'{result.text}',
             "format": f'{result.format}',
             "content": f'{result.content_type}',
@@ -61,6 +64,7 @@ def read_qr_code(config, params):
     logger.debug(_print_json(codes))
     if len(codes) == 0:
         logger.warning("No QR Code found")
+        return {'status':'success', 'message':'No QR Code found'}
     else:
         return codes
 
