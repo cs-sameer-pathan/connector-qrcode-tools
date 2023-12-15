@@ -41,7 +41,7 @@
                 },
                 "version": "1.0.0",
                 "connector": "qrcode-tools",
-                "operation": "read_code",
+                "operation": "read_qr_code",
                 "operationTitle": "Read QR/Bar Code",
                 "pickFromTenant": false,
                 "step_variables": []
