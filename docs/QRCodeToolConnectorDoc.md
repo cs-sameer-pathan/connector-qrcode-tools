@@ -75,3 +75,10 @@
 </ul>
 
 <p><strong>Note</strong>: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.</p>
+
+
+<h2>Troubleshooting</h2>
+
+When receiving this error <h4>libGL.so.1: cannot open shared object file: No sch file or directory</h4>
+<b>Resolution</b>: install libGLU package using below command
+`yum install libGLU`
