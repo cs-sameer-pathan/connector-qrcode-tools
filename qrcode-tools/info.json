@@ -1,7 +1,7 @@
 {
   "name": "qrcode-tools",
   "label": "QRCode Tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "Utilities",
   "description": "QRCode Tools helps users working with QR and Bar codes",
   "cs_approved": false,
@@ -9,7 +9,7 @@
   "publisher": "Fortinet CSE",
   "icon_small_name": "small_icon.png",
   "icon_large_name": "large_icon.png",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-qrcode-tools/blob/release/1.0.0/docs/QRCodeToolConnectorDoc.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-qrcode-tools/blob/release/1.0.1/docs/QRCodeToolConnectorDoc.md",
   "configuration": {},
   "operations": [
     {
@@ -21,14 +21,44 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "File IRI",
-          "name": "file_iri",
-          "description": "IRI of the image file or attachment with the QR/Bar code(s) to read",
-          "tooltip": "IRI of the image file or attachment with the QR/Bar code(s) to read",
-          "type": "text",
+          "title": "Input Type",
+          "name": "type",
+          "description": "Specify the type of input that you want to submit to read the QR code. The input type can be an IRI or a File Path.",
+          "tooltip": "Specify the type of input that you want to submit to read the QR code.",
+          "type": "select",
           "visible": true,
           "editable": true,
-          "required": true
+          "required": true,
+          "options": [
+            "IRI",
+            "File Path"
+          ],
+          "onchange": {
+            "IRI": [
+              {
+                "title": "File IRI/Attachment IRI",
+                "name": "file_iri",
+                "description": "Specify the IRI of the image file or attachment with the QR/Bar code(s) to read.",
+                "tooltip": "Specify the IRI of the image file or attachment with the QR/Bar code(s) to read",
+                "type": "text",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ],
+            "File Path": [
+              {
+                "title": "File Path",
+                "name": "file_iri",
+                "description": "Specify the name or path the file whose QR/Bar code(s) to read.",
+                "tooltip": "Specify the IRI of the image file or attachment with the QR/Bar code(s) to read",
+                "type": "text",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ]
+          }
         }
       ],
       "output_schema": [
