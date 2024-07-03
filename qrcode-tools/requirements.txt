@@ -1,2 +1,4 @@
 zxing-cpp>=2.1.0
 opencv-python>=4.8.1.78
+pdf2image
+pillow

@@ -19,7 +19,7 @@
           "name": "Read QR/Bar Code",
           "aliasName": null,
           "tag": null,
-          "description": "Read QR/Bar codes from image file or attachment",
+          "description": "Read QR/Bar codes from an image, PDF, or DOCX file or attachment.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
