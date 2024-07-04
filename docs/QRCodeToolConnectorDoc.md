@@ -60,10 +60,16 @@ The `Sample - qrcode-tools - 1.0.1` playbook collection comes bundled with the Q
 
 ## Troubleshooting
 
-When receiving this error 
-> libGL.so.1: cannot open shared object file: No sch file or directory
+- When receiving below error 
+   >libGL.so.1: cannot open shared object file: No sch file or directory
 
-<b>Resolution</b>: install libGLU package using below command
+    <b>Resolution</b>: Install libGLU package using below command
 
-`yum install libGLU`
+        `yum install libGLU`
+- When receiving below error
+   > Unable to get page count. Is poppler installed and in PATH?
+
+  <b>Resolution</b>: Install the development libraries for Poppler
+   
+        `yum install poppler-utils`
 
