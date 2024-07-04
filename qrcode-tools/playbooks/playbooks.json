@@ -3,7 +3,7 @@
   "data": [
     {
       "@type": "WorkflowCollection",
-      "name": "Sample - QRCode Tools - 1.0.0",
+      "name": "Sample - QRCode Tools - 1.0.1",
       "description": "Sample playbooks for \"QRCode Tools\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
       "image": "",
@@ -19,7 +19,7 @@
           "name": "Read QR/Bar Code",
           "aliasName": null,
           "tag": null,
-          "description": "Read QR/Bar codes from image file or attachment",
+          "description": "Read QR/Bar codes from an image, PDF, or DOCX file or attachment.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
@@ -40,7 +40,7 @@
                 "params": {
                   "file_iri": "{{vars.input.records[0]['@id']}}"
                 },
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "connector": "qrcode-tools",
                 "operation": "read_qr_code",
                 "operationTitle": "Read QR/Bar Code",

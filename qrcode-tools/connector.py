@@ -11,11 +11,13 @@ from . import operations
 
 logger = get_logger('qrcode-tools')
 
+
 def get_available_operations(operations, operation):
     '''returns the function object defined by operation str'''
     for func in filter(callable, operations.__dict__.values()):
         if operation in func.__qualname__:
             return func
+
 
 class QrCodeTools(Connector):
     def execute(self, config, operation, params, **kwargs):

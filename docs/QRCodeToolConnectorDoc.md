@@ -1,61 +1,45 @@
-
-<h2>About the connector</h2>
-
-<p>QRCode Tools helps users working with QR and Bar codes</p>
-
+## About the connector
+QRCode Tools helps users working with QR and Bar codes
 <p>This document provides information about the QRCode Tools Connector, which facilitates automated interactions, with a QRCode Tools server using FortiSOAR&trade; playbooks. Add the QRCode Tools Connector as a step in FortiSOAR&trade; playbooks and perform automated operations with QRCode Tools.</p>
 
-<h3>Version information</h3>
+#### Version information
 
-<p>Connector Version: 1.0.0</p>
+Connector Version: 1.0.1
 
-<p>Authored By: Fortinet CSE</p>
+FortiSOAR&trade; Version Tested on: 7.5.0-4015
 
-<p>Contributors: Naili Mahdi</p>
+Authored By: Fortinet
 
-<p>Certified: No</p>
-
-<h2>Installing the connector</h2>
-
-<p>Use the <strong>Content Hub</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.</p><p>You can also use the <code>yum</code> command as a root user to install the connector:</p>
-
-<pre>yum install cyops-connector-qrcode-tools</pre>
-
-<h2>Prerequisites to configuring the connector</h2>
-
-<p>There are no prerequisites to configuring this connector.</p>
-
-<h2>Minimum Permissions Required</h2>
-
+Certified: Yes
+## Release Notes for version 1.0.1
+Following enhancements have been made to the QRCode Tools Connector in version 1.0.1:
 <ul>
-<li>Not applicable</li>
+<li>Added support to specify name or path of the file in /tmp directory to read the QR(Bar) code.</li>
 </ul>
 
-<h2>Configuring the connector</h2>
+## Installing the connector
+<p>Use the <strong>Content Hub</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.</p>
+<p>You can also use the <code>yum</code> command as a root user to install the connector:</p>
+<pre>yum install cyops-connector-qrcode-tools</pre>
 
-<p>For the procedure to configure a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector">here</a></p>
+## Prerequisites to configuring the connector
+There are no prerequisites to configuring this connector.
 
-<h3>Configuration parameters</h3>
+## Minimum Permissions Required
+- Not applicable
 
-<p>None.</p>
-
-<h2>Actions supported by the connector</h2>
-
-<p>The following automated operations can be included in playbooks and you can also use the annotations to access operations:</p>
-
+## Actions supported by the connector
+The following automated operations can be included in playbooks, and you can also use the annotations to access operations from FortiSOAR&trade; release 4.10.0 and onwards:
 <table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Read QR/Bar Code</td><td>Read QR/Bar code(s) from an image file or attachment</td><td>read_qr_code <br/>Investigation</td></tr>
 </tbody></table>
 
-<h3>operation: Read QR/Bar Code</h3>
+### operation: Read QR/Bar Code
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Input Type</td><td>Specify the type of input that you want to submit to read the QR code. The input type can be an IRI or a File Path.
+<br><strong>If you choose 'IRI'</strong><ul><li>File IRI/Attachment IRI: Specify the IRI of the image file or attachment with the QR/Bar code(s) to read.</li></ul><strong>If you choose 'File Path'</strong><ul><li>File Path: Specify the name or path the file whose QR/Bar code(s) to read.</li></ul></td></tr></tbody></table>
 
-<h4>Input parameters</h4>
-
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>File IRI</td><td>IRI of the image file or attachment with the QR/Bar code(s) to read
-</td></tr></tbody></table>
-
-<h4>Output</h4>
-
-<p>The output contains the following populated JSON schema:</p>
+#### Output
+The output contains the following populated JSON schema:
 
 <pre>[
     {
@@ -66,19 +50,20 @@
     }
 ]</pre>
 
-<h2>Included playbooks</h2>
+## Included playbooks
+The `Sample - qrcode-tools - 1.0.1` playbook collection comes bundled with the QRCode Tools connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR&trade; after importing the QRCode Tools connector.
 
-<p>The <code>Sample - qrcode-tools - 1.0.0</code> playbook collection comes bundled with the QRCode Tools connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the <strong>Automation</strong> &gt; <strong>Playbooks</strong> section in FortiSOAR&trade; after importing the QRCode Tools connector.</p>
+- Read QR/Bar Code
 
-<ul>
-<li>Read QR/Bar Code</li>
-</ul>
-
-<p><strong>Note</strong>: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.</p>
+**Note**: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.
 
 
-<h2>Troubleshooting</h2>
+## Troubleshooting
 
-When receiving this error <h4>libGL.so.1: cannot open shared object file: No sch file or directory</h4>
+When receiving this error 
+> libGL.so.1: cannot open shared object file: No sch file or directory
+
 <b>Resolution</b>: install libGLU package using below command
+
 `yum install libGLU`
+

@@ -5,15 +5,16 @@ Copyright (c) 2024 Fortinet Inc
 Copyright end
 """
 
-
 import logging
 import zxingcpp
 import cv2
-import json
+import json, io, os
+import zipfile
+from PIL import Image
+from pdf2image import convert_from_path
 from connectors.core.connector import get_logger, ConnectorError
 from integrations.crudhub import make_request
 from connectors.cyops_utilities.builtins import download_file_from_cyops
-
 
 logger = get_logger('qrcode-tools')
 logger.setLevel(logging.DEBUG)
@@ -22,8 +23,10 @@ logger.setLevel(logging.DEBUG)
 Utilities: support functions
 """
 
+
 def _print_json(json_object):
     return json.dumps(json_object, indent=4)
+
 
 def _get_file_path(file_id):
     iri_type = 'attachment'
@@ -47,26 +50,50 @@ def _get_file_path(file_id):
     file_path = "{0}/{1}".format('/tmp', res['cyops_file_path'])
     return file_path
 
+
 """
 Operations: connector's actions implementation
 """
 
+
 def read_qr_code(config, params):
     """Reads QRcode from an image file"""
     codes = []
-    img = cv2.imread(_get_file_path(params.get("file_iri")))
-    results = zxingcpp.read_barcodes(img)
+    if params.get('type') == 'File Path':
+        file_id = str(params.get("file_iri"))
+        file_path = file_id if file_id.startswith('/tmp') else '/tmp/{0}'.format(file_id)
+    else:
+        file_path = _get_file_path(params.get("file_iri"))
+
+    if not os.path.exists(file_path):
+        raise ConnectorError("File {0} does not exists.".format(file_path))
+    results = []
+    if file_path.lower().endswith('.pdf'):
+        pages = convert_from_path(file_path, dpi=300)
+        for page_num, image in enumerate(pages):
+            results.extend(zxingcpp.read_barcodes(image))
+    elif file_path.lower().endswith('.docx'):
+        zipf = zipfile.ZipFile(file_path)
+        filelist = zipf.namelist()
+        for f_name in filelist:
+            _, extension = os.path.splitext(f_name)
+            if extension in [".jpg", ".jpeg", ".png", ".bmp"]:
+                image_bytes = zipf.read(f_name)
+                image = Image.open(io.BytesIO(image_bytes))
+                results.extend(zxingcpp.read_barcodes(image))
+        zipf.close()
+    else:
+        img = cv2.imread(file_path)
+        results = zxingcpp.read_barcodes(img)
     for result in results:
         codes.append({
             "text": f'{result.text}',
             "format": f'{result.format}',
             "content": f'{result.content_type}',
-            "position": f'{result.position}'.replace('\u0000','')
+            "position": f'{result.position}'.replace('\u0000', '')
         })
-    logger.debug(_print_json(codes))
     if len(codes) == 0:
         logger.warning("No QR Code found")
-        return {'status':'success', 'message':'No QR Code found'}
+        return {'status': 'success', 'message': 'No QR Code found'}
     else:
         return codes
-
