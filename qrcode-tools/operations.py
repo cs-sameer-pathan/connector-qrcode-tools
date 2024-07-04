@@ -48,7 +48,7 @@ def _get_file_path(file_id):
         file_name = res['filename']
     logger.info("res: {}".format(res))
     file_path = "{0}/{1}".format('/tmp', res['cyops_file_path'])
-    return file_path
+    return file_path, file_name
 
 
 """
@@ -57,22 +57,23 @@ Operations: connector's actions implementation
 
 
 def read_qr_code(config, params):
-    """Reads QRcode from an image file"""
+    """Reads QRcode from an image, PDF or DOCX file or attachment"""
     codes = []
     if params.get('type') == 'File Path':
         file_id = str(params.get("file_iri"))
         file_path = file_id if file_id.startswith('/tmp') else '/tmp/{0}'.format(file_id)
+        file_name = os.path.basename(file_path)
     else:
-        file_path = _get_file_path(params.get("file_iri"))
+        file_path, file_name = _get_file_path(params.get("file_iri"))
 
     if not os.path.exists(file_path):
         raise ConnectorError("File {0} does not exists.".format(file_path))
     results = []
-    if file_path.lower().endswith('.pdf'):
+    if file_name.lower().endswith('.pdf'):
         pages = convert_from_path(file_path, dpi=300)
         for page_num, image in enumerate(pages):
             results.extend(zxingcpp.read_barcodes(image))
-    elif file_path.lower().endswith('.docx'):
+    elif file_name.lower().endswith('.docx'):
         zipf = zipfile.ZipFile(file_path)
         filelist = zipf.namelist()
         for f_name in filelist:
