@@ -61,7 +61,7 @@ The `Sample - qrcode-tools - 1.0.1` playbook collection comes bundled with the Q
 ## Troubleshooting
 
 - When receiving below error 
-   >libGL.so.1: cannot open shared object file: No sch file or directory
+   >libGL.so.1: cannot open shared object file: No such file or directory
 
     <b>Resolution</b>: Install libGLU package using below command
 

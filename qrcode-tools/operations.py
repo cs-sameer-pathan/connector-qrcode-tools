@@ -69,11 +69,11 @@ def read_qr_code(config, params):
     if not os.path.exists(file_path):
         raise ConnectorError("File {0} does not exists.".format(file_path))
     results = []
-    if file_name.lower().endswith('.pdf'):
+    if file_name.lower().endswith('.pdf') or get_file_type(file_path) == 'PDF':
         pages = convert_from_path(file_path, dpi=300)
         for page_num, image in enumerate(pages):
             results.extend(zxingcpp.read_barcodes(image))
-    elif file_name.lower().endswith('.docx'):
+    elif file_name.lower().endswith('.docx') or get_file_type(file_path) == 'DOCX':
         zipf = zipfile.ZipFile(file_path)
         filelist = zipf.namelist()
         for f_name in filelist:
@@ -98,3 +98,16 @@ def read_qr_code(config, params):
         return {'status': 'success', 'message': 'No QR Code found'}
     else:
         return codes
+
+
+def get_file_type(file_path):
+    try:
+        with open(file_path, 'rb') as file:
+            file_header = file.read(4)
+            if file_header == b'%PDF':
+                return 'PDF'
+            elif file_header == b'PK\x03\x04':
+                return 'DOCX'
+        return 'Other'
+    except Exception as e:
+        logger.exception("Error occurred while getting file extension: {0}".format(e))
