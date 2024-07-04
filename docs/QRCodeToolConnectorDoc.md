@@ -65,11 +65,11 @@ The `Sample - qrcode-tools - 1.0.1` playbook collection comes bundled with the Q
 
     <b>Resolution</b>: Install libGLU package using below command
 
-    `yum install libGLU`
+        `yum install libGLU`
 - When receiving below error
-  > Unable to get page count. Is poppler installed and in PATH?
+   > Unable to get page count. Is poppler installed and in PATH?
 
   <b>Resolution</b>: Install the development libraries for Poppler
    
-  `yum install poppler-utils`
+        `yum install poppler-utils`
 
