@@ -9,7 +9,7 @@
   "publisher": "Fortinet",
   "icon_small_name": "small_icon.png",
   "icon_large_name": "large_icon.png",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-qrcode-tools/blob/release/1.0.1/docs/QRCodeToolConnectorDoc.md",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.1/qr-code-tools/921/qrcode-tools-v1-0-1",
   "configuration": {},
   "operations": [
     {
@@ -23,8 +23,8 @@
         {
           "title": "Input Type",
           "name": "type",
-          "description": "Specify the type of input that you want to submit to read the QR code. The input type can be an IRI or a File Path.",
-          "tooltip": "Specify the type of input that you want to submit to read the QR code.",
+          "description": "Specify the input type that to submit for reading the QR code. You can choose from the following options: IRI, File Path",
+          "tooltip": "Specify the input type that to submit for reading the QR code.",
           "type": "select",
           "visible": true,
           "editable": true,
@@ -38,8 +38,8 @@
               {
                 "title": "File IRI/Attachment IRI",
                 "name": "file_iri",
-                "description": "Specify the IRI of the image file or attachment with the QR/Bar code(s) to read.",
-                "tooltip": "Specify the IRI of the image file or attachment with the QR/Bar code(s) to read",
+                "description": " Specify the file or attachment IRI of the file containing the QR code to read.",
+                "tooltip": " Specify the file or attachment IRI of the file containing the QR code to read.",
                 "type": "text",
                 "visible": true,
                 "editable": true,
@@ -50,8 +50,8 @@
               {
                 "title": "File Path",
                 "name": "file_iri",
-                "description": "Specify the name or path the file whose QR/Bar code(s) to read.",
-                "tooltip": "Specify the IRI of the image file or attachment with the QR/Bar code(s) to read",
+                "description": "Specify the name or path of the file containing the QR code to read.",
+                "tooltip": "Specify the name or path of the file containing the QR code to read.",
                 "type": "text",
                 "visible": true,
                 "editable": true,
