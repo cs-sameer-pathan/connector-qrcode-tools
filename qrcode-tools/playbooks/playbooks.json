@@ -34,7 +34,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "QRCode Tools",
+                "name": "QR Code Tools",
                 "config": "''",
                 "params": {
                   "type": ""
@@ -52,9 +52,9 @@
           "triggerLimit": null,
           "description": "Read QR/Bar codes from an image, PDF, or DOCX file or attachment.",
           "name": "Read QR/Bar Code",
-          "tag": "#QRCode Tools",
+          "tag": "#QR Code Tools",
           "recordTags": [
-            "QRCode",
+            "QR Code",
             "qrcode-tools"
           ],
           "isActive": false,
@@ -76,11 +76,11 @@
           ]
         }
       ],
-      "name": "Sample - QRCode Tools - 1.0.1",
-      "description": "QRCode Tools helps users working with QR and Bar codes",
+      "name": "Sample - QR Code Tools - 1.0.1",
+      "description": "QR Code Tools helps users working with QR and Bar codes",
       "visible": true,
       "recordTags": [
-        "QRCode",
+        "QR Code",
         "qrcode-tools"
       ]
     }
