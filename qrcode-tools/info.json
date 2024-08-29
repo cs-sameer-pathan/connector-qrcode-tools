@@ -1,9 +1,9 @@
 {
   "name": "qrcode-tools",
-  "label": "QRCode Tools",
+  "label": "QR Code Tools",
   "version": "1.0.1",
   "category": "Utilities",
-  "description": "QRCode Tools helps users working with QR and Bar codes",
+  "description": "QR Code Tools helps users working with QR and Bar codes",
   "cs_approved": true,
   "cs_compatible": true,
   "publisher": "Fortinet",
