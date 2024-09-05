@@ -11,7 +11,7 @@ import cv2
 import json, io, os
 import zipfile
 from PIL import Image
-from pdf2image import convert_from_path
+from pdf2image import convert_from_path, pdfinfo_from_path
 from connectors.core.connector import get_logger, ConnectorError
 from integrations.crudhub import make_request
 from connectors.cyops_utilities.builtins import download_file_from_cyops
@@ -70,9 +70,12 @@ def read_qr_code(config, params):
         raise ConnectorError("File {0} does not exists.".format(file_path))
     results = []
     if file_name.lower().endswith('.pdf') or get_file_type(file_path) == 'PDF':
-        pages = convert_from_path(file_path, dpi=300)
-        for page_num, image in enumerate(pages):
-            results.extend(zxingcpp.read_barcodes(image))
+        pdf_info = pdfinfo_from_path(file_path)
+        total_pages = pdf_info.get("Pages")
+        for i in range(0, total_pages+1, 5):
+            pages = convert_from_path(file_path, dpi=200, first_page=i, last_page=min(i+4, pdf_info.get("Pages")))
+            for page_num, image in enumerate(pages):
+                results.extend(zxingcpp.read_barcodes(image))
     elif file_name.lower().endswith('.docx') or get_file_type(file_path) == 'DOCX':
         zipf = zipfile.ZipFile(file_path)
         filelist = zipf.namelist()
