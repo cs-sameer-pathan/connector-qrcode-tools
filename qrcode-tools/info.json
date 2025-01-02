@@ -1,7 +1,7 @@
 {
   "name": "qrcode-tools",
   "label": "QR Code Tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "category": "Utilities",
   "description": "QR Code Tools helps users working with QR and Bar codes",
   "cs_approved": true,
@@ -9,7 +9,7 @@
   "publisher": "Fortinet",
   "icon_small_name": "small_icon.png",
   "icon_large_name": "large_icon.png",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.1/qr-code-tools/921/qrcode-tools-v1-0-1",
+  "help_online": "",
   "configuration": {},
   "operations": [
     {

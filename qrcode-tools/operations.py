@@ -1,7 +1,7 @@
 """"
 Copyright start
 MIT License
-Copyright (c) 2024 Fortinet Inc
+Copyright (c) 2025 Fortinet Inc
 Copyright end
 """
 
@@ -58,7 +58,6 @@ Operations: connector's actions implementation
 
 def read_qr_code(config, params):
     """Reads QRcode from an image, PDF or DOCX file or attachment"""
-    codes = []
     if params.get('type') == 'File Path':
         file_id = str(params.get("file_iri"))
         file_path = file_id if file_id.startswith('/tmp') else '/tmp/{0}'.format(file_id)
@@ -88,7 +87,12 @@ def read_qr_code(config, params):
         zipf.close()
     else:
         img = cv2.imread(file_path)
-        results = zxingcpp.read_barcodes(img)
+        if img is not None:
+            results = zxingcpp.read_barcodes(img)
+        else:
+            logger.warning(f"Failed to load image from {file_path}. Please check the file path.")
+            results = []
+    codes = []
     for result in results:
         codes.append({
             "text": f'{result.text}',
