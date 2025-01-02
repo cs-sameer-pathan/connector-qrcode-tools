@@ -1,7 +1,7 @@
 """"
 Copyright start
 MIT License
-Copyright (c) 2024 Fortinet Inc
+Copyright (c) 2025 Fortinet Inc
 Copyright end
 """
 
@@ -90,7 +90,7 @@ def read_qr_code(config, params):
         if img is not None:
             results = zxingcpp.read_barcodes(img)
         else:
-            logger.warning("Failed to load image from {file_path}. Please check the file path.")
+            logger.warning(f"Failed to load image from {file_path}. Please check the file path.")
             results = []
     codes = []
     for result in results:
