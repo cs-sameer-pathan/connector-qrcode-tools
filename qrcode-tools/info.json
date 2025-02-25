@@ -14,8 +14,8 @@
   "operations": [
     {
       "operation": "read_qr_code",
-      "title": "Read QR/Bar Code",
-      "description": "Read QR/Bar codes from an image, PDF, or DOCX file or attachment.",
+      "title": "Read QR Code",
+      "description": "Read QR or Bar codes from an image, PDF, or DOCX file or attachment.",
       "category": "investigation",
       "annotation": "read_qr_code",
       "enabled": true,

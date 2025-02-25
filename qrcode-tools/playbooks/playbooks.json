@@ -30,7 +30,7 @@
             {
               "uuid": "2048fbd0-c58e-4836-a241-08a3866d78c7",
               "@type": "WorkflowStep",
-              "name": "Read QR/Bar Code",
+              "name": "Read QR Code",
               "description": null,
               "status": null,
               "arguments": {
@@ -42,7 +42,7 @@
                 "version": "1.0.2",
                 "connector": "qrcode-tools",
                 "operation": "read_qr_code",
-                "operationTitle": "Read QR/Bar Code"
+                "operationTitle": "Read QR Code"
               },
               "left": "188",
               "top": "120",
@@ -50,8 +50,8 @@
             }
           ],
           "triggerLimit": null,
-          "description": "Read QR/Bar codes from an image, PDF, or DOCX file or attachment.",
-          "name": "Read QR/Bar Code",
+          "description": "Read QR or Bar codes from an image, PDF, or DOCX file or attachment.",
+          "name": "Read QR Code",
           "tag": "#QR Code Tools",
           "recordTags": [
             "QR Code",
@@ -69,7 +69,7 @@
               "@type": "WorkflowRoute",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Read QR/Bar Code",
+              "name": "Start-> Read QR Code",
               "sourceStep": "/api/3/workflow_steps/a4b2bafc-be2a-49e3-8e2e-3275e0d6c758",
               "targetStep": "/api/3/workflow_steps/2048fbd0-c58e-4836-a241-08a3866d78c7"
             }
