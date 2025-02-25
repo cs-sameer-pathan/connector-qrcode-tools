@@ -47,7 +47,9 @@ def _get_file_path(file_id):
     if not file_name:
         file_name = res['filename']
     logger.info("res: {}".format(res))
-    file_path = "{0}/{1}".format('/tmp', res['cyops_file_path'])
+    file_path = res['cyops_file_path']
+    if not file_path.startswith('/tmp'):
+        file_path = "{0}/{1}".format('/tmp', file_path)
     return file_path, file_name
 
 
