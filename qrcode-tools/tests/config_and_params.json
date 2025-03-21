@@ -1,0 +1,12 @@
+{
+    "config": [
+        {}
+    ],
+    "read_qr_code": [
+        {
+            "type": "IRI",
+            "file_iri": "##dynamically populated Qrcode file from resources folder##"
+        }
+
+    ]
+}
