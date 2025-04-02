@@ -9,7 +9,7 @@
   "publisher": "Fortinet",
   "icon_small_name": "small_icon.png",
   "icon_large_name": "large_icon.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.2/qr-code-tools/1047/qr-code-tools-v1-0-2",
   "configuration": {},
   "operations": [
     {
